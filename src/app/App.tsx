@@ -3,6 +3,7 @@ import { lazy } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { Layout } from '@/app/Layout';
 import { TimerScreen } from '@/app/TimerScreen';
+import { useDataRuntime } from '@/features/sessions/recorder';
 import { useTheme } from '@/features/settings/useTheme';
 import { useTimerRuntime } from '@/features/timer/runtime';
 import { EmptyState } from '@/ui/EmptyState';
@@ -40,6 +41,8 @@ const router = createBrowserRouter(
 );
 
 export function App() {
+  // Порядок важен: запись сессий должна слушать автомат до того, как он восстановится после перезагрузки.
+  useDataRuntime();
   useTimerRuntime();
   useTheme();
   return (

@@ -3,7 +3,7 @@ import { toTimerConfig, useSettings } from '@/features/settings/store';
 import { createClock } from '@/features/timer/clock/clock';
 import { remainingMs } from '@/features/timer/model/machine';
 import { pulse, subscribeNow } from '@/features/timer/now';
-import { onTimerEffect, timerActions, useTimer } from '@/features/timer/store';
+import { onTimerEffect, TIMER_KEY, timerActions, useTimer } from '@/features/timer/store';
 import { playSignal, unlockAudio } from '@/lib/audio/synth';
 import { clock as fmtClock, MODE_LABEL } from '@/lib/format';
 import { notify } from '@/lib/notify';
@@ -76,6 +76,16 @@ export function useTimerRuntime(): void {
       }
     };
     document.addEventListener('visibilitychange', onVisible);
+    // Другая вкладка изменила таймер — подхватываем её состояние и перевзводим часы.
+    const onStorage = (e: StorageEvent) => {
+      if (e.key !== TIMER_KEY) return;
+      void Promise.resolve(useTimer.persist.rehydrate()).then(() => {
+        useTimer.getState().dispatch({ type: 'RESTORE', now: Date.now() });
+        if (useTimer.getState().machine.phase !== 'running') c.disarm();
+        pulse(Date.now());
+      });
+    };
+    window.addEventListener('storage', onStorage);
     window.addEventListener('pointerdown', unlockAudio, { once: true });
     window.addEventListener('keydown', unlockAudio, { once: true });
 
@@ -84,6 +94,7 @@ export function useTimerRuntime(): void {
       offSettings();
       c.dispose();
       document.removeEventListener('visibilitychange', onVisible);
+      window.removeEventListener('storage', onStorage);
     };
   }, []);
 

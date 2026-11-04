@@ -1,0 +1,147 @@
+.page {
+  display: grid;
+  gap: var(--s-7);
+  max-width: 880px;
+}
+.list {
+  padding: 0;
+  list-style: none;
+  border-top: var(--hair) solid var(--rule);
+}
+.row {
+  position: relative;
+  display: grid;
+  grid-template-columns: 28px 12px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: var(--s-4);
+  min-height: 72px;
+  padding: var(--s-3) 0;
+  border-bottom: var(--hair) solid var(--rule);
+  background: var(--paper);
+  list-style: none;
+}
+.handle {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: var(--tap);
+  color: var(--ink-4);
+  cursor: grab;
+  touch-action: none;
+}
+.handle:hover {
+  color: var(--ink-2);
+}
+.handle:active {
+  cursor: grabbing;
+}
+.swatch {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--r-xs);
+}
+.main {
+  display: grid;
+  gap: var(--s-2);
+  min-width: 0;
+}
+.name {
+  font-size: var(--fs-17);
+  font-weight: 500;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.share {
+  display: block;
+  height: 2px;
+  max-width: 320px;
+  background: var(--paper-sunken);
+}
+.shareFill {
+  display: block;
+  height: 100%;
+}
+.stat {
+  display: grid;
+  justify-items: end;
+  font-size: var(--fs-15);
+}
+.statNote {
+  font-size: var(--fs-13);
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+.actions {
+  display: flex;
+  gap: 2px;
+}
+
+.presets {
+  display: grid;
+  gap: var(--s-3);
+}
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+}
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: 36px;
+  padding: 0 var(--s-3);
+  border: var(--hair) dashed var(--rule-strong);
+  border-radius: var(--r-sm);
+  font-size: var(--fs-13);
+  color: var(--ink-2);
+  transition:
+    border-color var(--d-micro) var(--ease-standard),
+    color var(--d-micro) var(--ease-standard);
+}
+.chip:hover {
+  border-style: solid;
+  border-color: var(--ink);
+  color: var(--ink);
+}
+
+.archive {
+  display: grid;
+  gap: var(--s-3);
+}
+.archiveToggle {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--tap);
+  justify-self: start;
+}
+.archiveList {
+  overflow: hidden;
+  padding: 0;
+  list-style: none;
+}
+.archivedRow {
+  display: grid;
+  grid-template-columns: 12px minmax(0, 1fr) auto auto;
+  align-items: center;
+  gap: var(--s-4);
+  min-height: 56px;
+  border-bottom: var(--hair) solid var(--rule);
+  color: var(--ink-2);
+}
+.archiveNote {
+  font-size: var(--fs-13);
+  color: var(--ink-3);
+}
+
+@media (max-width: 600px) {
+  .row {
+    grid-template-columns: 24px 10px minmax(0, 1fr) auto;
+    gap: var(--s-3);
+  }
+  .stat {
+    display: none;
+  }
+}

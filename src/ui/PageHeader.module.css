@@ -2,7 +2,6 @@
   display: grid;
   gap: var(--s-3);
   padding-bottom: var(--s-6);
-  margin-bottom: var(--s-6);
   border-bottom: var(--hair) solid var(--rule);
 }
 .row {
