@@ -1,3 +1,4 @@
+@import '@fontsource/onest/300.css';
 @import '@fontsource/onest/400.css';
 @import '@fontsource/onest/500.css';
 @import '@fontsource/onest/600.css';
@@ -26,7 +27,6 @@ body {
   font-family: var(--font-text);
   font-size: var(--fs-15);
   line-height: var(--lh-text);
-  font-feature-settings: 'ss01', 'cv11';
   -webkit-font-smoothing: antialiased;
   transition:
     background-color var(--d-mode) var(--ease-standard),

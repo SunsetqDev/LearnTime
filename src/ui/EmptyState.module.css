@@ -1,0 +1,60 @@
+.root {
+  display: grid;
+  justify-items: start;
+  gap: var(--s-4);
+  padding: var(--s-7) 0;
+  max-width: 420px;
+}
+.compact {
+  padding: var(--s-5) 0;
+  gap: var(--s-3);
+}
+.compact .art {
+  width: 120px;
+  height: 72px;
+}
+.art {
+  color: var(--ink-3);
+}
+.faint {
+  stroke: var(--ink-4);
+}
+.ink {
+  stroke: var(--ink);
+}
+.accent {
+  stroke: var(--mode);
+}
+.accentFill {
+  fill: var(--mode);
+  stroke: none;
+}
+.copy {
+  display: grid;
+  gap: var(--s-1);
+}
+.title {
+  font-size: var(--fs-21);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: var(--lh-head);
+}
+.text {
+  color: var(--ink-2);
+}
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-height: var(--tap);
+  font-weight: 500;
+  color: var(--ink);
+  text-decoration: none;
+  border-bottom: var(--hair-strong) solid var(--mode);
+}
+.action span {
+  transition: transform var(--d-micro) var(--ease-standard);
+}
+.action:hover span {
+  transform: translateX(4px);
+}

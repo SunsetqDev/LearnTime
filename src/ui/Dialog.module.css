@@ -1,0 +1,83 @@
+.dialog {
+  width: min(100% - 2 * var(--s-4), 440px);
+  max-height: min(88dvh, 720px);
+  padding: 0;
+  border: var(--hair) solid var(--rule-strong);
+  border-radius: var(--r-md);
+  background: var(--paper-raised);
+  color: var(--ink);
+  overflow: auto;
+}
+.md {
+  width: min(100% - 2 * var(--s-4), 560px);
+}
+.dialog::backdrop {
+  background: var(--scrim);
+}
+.dialog[open] {
+  animation: dialog-in var(--d-ui) var(--ease-out-expo);
+}
+.dialog[open]::backdrop {
+  animation: fade-in var(--d-ui) var(--ease-standard);
+}
+.body {
+  display: grid;
+  gap: var(--s-4);
+  padding: var(--s-5);
+}
+.head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-3);
+  margin: calc(-1 * var(--s-2)) calc(-1 * var(--s-3)) 0 0;
+}
+.title {
+  padding-top: var(--s-2);
+  font-size: var(--fs-21);
+  font-weight: 600;
+  line-height: var(--lh-head);
+  letter-spacing: -0.01em;
+}
+.desc {
+  color: var(--ink-2);
+}
+.foot {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: var(--s-2);
+  padding-top: var(--s-4);
+  border-top: var(--hair) solid var(--rule);
+}
+
+@media (max-width: 600px) {
+  .dialog {
+    width: 100%;
+    max-width: none;
+    margin: auto 0 0;
+    border-radius: var(--r-md) var(--r-md) 0 0;
+    border-bottom: 0;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+  .dialog[open] {
+    animation: sheet-in var(--d-page) var(--ease-out-expo);
+  }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px) scale(0.985);
+  }
+}
+@keyframes sheet-in {
+  from {
+    transform: translateY(100%);
+  }
+}
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+}

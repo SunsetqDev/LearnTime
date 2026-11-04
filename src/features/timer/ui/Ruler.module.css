@@ -1,0 +1,102 @@
+.root {
+  position: relative;
+  height: 64px;
+  margin: 0 2px;
+  user-select: none;
+}
+.track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 22px;
+  height: 3px;
+  background: var(--paper-sunken);
+  overflow: hidden;
+}
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--mode);
+  transform-origin: left center;
+  transition: background-color var(--d-mode) var(--ease-standard);
+}
+.ticks,
+.lit {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 29px;
+  height: 12px;
+}
+.tick {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 6px;
+  margin-left: -0.5px;
+  background: var(--ink-4);
+  transform-origin: top center;
+  animation: tick-in var(--d-page) var(--ease-out-expo) both;
+  animation-delay: calc(var(--i, 0) * 9ms);
+}
+.major {
+  width: 1.5px;
+  margin-left: -0.75px;
+  height: 12px;
+  background: var(--ink-3);
+}
+.on {
+  background: var(--mode);
+  animation: none;
+  transition: background-color var(--d-mode) var(--ease-standard);
+}
+.labels {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 46px;
+}
+.label {
+  position: absolute;
+  transform: translateX(-50%);
+  font-family: var(--font-num);
+  font-size: var(--fs-11);
+  color: var(--ink-3);
+  white-space: nowrap;
+}
+.first {
+  transform: none;
+}
+.last {
+  transform: translateX(-100%);
+}
+.now {
+  position: absolute;
+  top: 0;
+  height: 26px;
+  width: 1.5px;
+  margin-left: -0.75px;
+  background: var(--ink);
+}
+.nowLabel {
+  position: absolute;
+  top: -2px;
+  left: 6px;
+  font-family: var(--font-num);
+  font-size: var(--fs-11);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+@keyframes tick-in {
+  from {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tick {
+    animation: none;
+  }
+}

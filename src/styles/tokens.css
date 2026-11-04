@@ -5,7 +5,7 @@
 @property --mode {
   syntax: '<color>';
   inherits: true;
-  initial-value: #e3431b;
+  initial-value: #d23c17;
 }
 @property --mode-ink {
   syntax: '<color>';
@@ -22,6 +22,8 @@
   /* Типографика */
   --font-text: 'Onest', system-ui, -apple-system, 'Segoe UI', sans-serif;
   --font-num: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+  /* цифры таймера: тонкий гротеск, каждая цифра в ячейке фиксированной ширины */
+  --font-display-num: 'Onest', system-ui, sans-serif;
 
   --fs-11: 0.6875rem;
   --fs-13: 0.8125rem;
@@ -100,7 +102,7 @@
   --scrim: rgb(23 21 15 / 0.32);
   --on-solid: #faf8f3;
 
-  --c-focus: #e3431b;
+  --c-focus: #d23c17;
   --c-focus-ink: #b5320f;
   --c-focus-wash: #f6e1d6;
   --c-short: #3d6878;

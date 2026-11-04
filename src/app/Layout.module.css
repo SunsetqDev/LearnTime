@@ -1,0 +1,219 @@
+.shell {
+  min-height: 100dvh;
+  display: grid;
+  grid-template-rows: auto 1fr;
+}
+.skip {
+  position: absolute;
+  left: var(--s-4);
+  top: -100px;
+  z-index: var(--z-toast);
+  padding: var(--s-2) var(--s-3);
+  background: var(--ink);
+  color: var(--paper);
+  border-radius: var(--r-sm);
+}
+.skip:focus {
+  top: var(--s-3);
+}
+
+/* ---------- Шапка ---------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: var(--s-6);
+  width: 100%;
+  max-width: calc(var(--content-max) + 2 * var(--s-7));
+  margin: 0 auto;
+  padding: var(--s-4) var(--s-7);
+  background: var(--paper);
+  transition: background-color var(--d-mode) var(--ease-standard);
+}
+.headerRule {
+  position: absolute;
+  left: var(--s-7);
+  right: var(--s-7);
+  bottom: 0;
+  height: var(--hair);
+  background: var(--rule);
+  transform-origin: left center;
+}
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  text-decoration: none;
+}
+.mark {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 7px;
+  background: var(--ink);
+  overflow: hidden;
+}
+.markBar {
+  position: absolute;
+  left: 6px;
+  right: 6px;
+  bottom: 9px;
+  height: 2px;
+  background: color-mix(in srgb, var(--paper) 35%, transparent);
+}
+.markBar::after {
+  content: '';
+  position: absolute;
+  inset: 0 40% 0 0;
+  background: var(--mode);
+  transition: background-color var(--d-mode) var(--ease-standard);
+}
+.markNeedle {
+  position: absolute;
+  left: 15px;
+  top: 7px;
+  width: 1.5px;
+  height: 13px;
+  background: var(--mode);
+  transition: background-color var(--d-mode) var(--ease-standard);
+}
+.word {
+  display: inline-flex;
+  overflow: hidden;
+  font-size: var(--fs-21);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+}
+.word span {
+  display: inline-block;
+}
+
+.topNav ul {
+  display: flex;
+  justify-content: center;
+  gap: var(--s-1);
+  padding: 0;
+  list-style: none;
+}
+.topLink {
+  position: relative;
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  padding: var(--s-2) var(--s-3);
+  font-size: var(--fs-15);
+  font-weight: 500;
+  color: var(--ink-3);
+  text-decoration: none;
+  transition: color var(--d-micro) var(--ease-standard);
+}
+.topLink:hover,
+.topLink.on {
+  color: var(--ink);
+}
+.index {
+  font-family: var(--font-num);
+  font-size: var(--fs-11);
+  color: var(--ink-4);
+  transition: color var(--d-micro) var(--ease-standard);
+}
+.topLink.on .index {
+  color: var(--mode-ink);
+}
+.underline {
+  position: absolute;
+  left: var(--s-3);
+  right: var(--s-3);
+  bottom: -1px;
+  height: var(--hair-strong);
+  background: var(--ink);
+}
+.meta {
+  min-width: 64px;
+  text-align: right;
+}
+
+/* ---------- Содержимое ---------- */
+.content {
+  width: 100%;
+  max-width: calc(var(--content-max) + 2 * var(--s-7));
+  margin: 0 auto;
+  padding: var(--s-7) var(--s-7) var(--s-9);
+  outline: none;
+}
+.page {
+  min-width: 0;
+}
+.loading {
+  min-height: 40vh;
+}
+
+/* ---------- Нижняя панель (телефон) ---------- */
+.tabBar {
+  display: none;
+}
+
+@media (max-width: 960px) {
+  .header {
+    grid-template-columns: 1fr auto;
+    padding: var(--s-3) var(--s-4);
+  }
+  .headerRule {
+    left: var(--s-4);
+    right: var(--s-4);
+  }
+  .topNav {
+    display: none;
+  }
+  .content {
+    padding: var(--s-5) var(--s-4) calc(var(--tabbar-h) + var(--s-7) + env(safe-area-inset-bottom));
+  }
+  .tabBar {
+    display: block;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: var(--z-sticky);
+    padding-bottom: env(safe-area-inset-bottom);
+    background: var(--paper);
+    border-top: var(--hair) solid var(--rule);
+    transition: background-color var(--d-mode) var(--ease-standard);
+  }
+  .tabBar ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    padding: 0;
+    list-style: none;
+  }
+  .tab {
+    position: relative;
+    display: grid;
+    justify-items: center;
+    align-content: center;
+    gap: 2px;
+    height: var(--tabbar-h);
+    color: var(--ink-3);
+    text-decoration: none;
+    transition: color var(--d-micro) var(--ease-standard);
+  }
+  .tab.on {
+    color: var(--ink);
+  }
+  .tabLabel {
+    font-size: var(--fs-11);
+    font-weight: 500;
+  }
+  .tabIndicator {
+    position: absolute;
+    top: -1px;
+    left: 30%;
+    right: 30%;
+    height: 2px;
+    background: var(--mode);
+  }
+}

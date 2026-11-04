@@ -1,0 +1,45 @@
+.root {
+  font-family: var(--font-display-num);
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+  line-height: var(--lh-tight);
+  letter-spacing: var(--tracking-display);
+  color: var(--ink);
+  transition: color var(--d-ui) var(--ease-standard);
+}
+.hero {
+  font-size: var(--fs-timer);
+}
+.focus {
+  font-size: clamp(5rem, 22vw, 15rem);
+}
+.dim {
+  color: var(--ink-3);
+}
+.digits {
+  display: inline-flex;
+  align-items: baseline;
+}
+.slot {
+  position: relative;
+  display: inline-block;
+  width: 0.58em;
+  height: 1.1em;
+  overflow: hidden;
+  /* мягкие края, чтобы цифра «выезжала» из прорези, а не обрезалась ножом */
+  mask-image: linear-gradient(transparent 0, #000 9%, #000 91%, transparent 100%);
+}
+.char {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+.colon {
+  display: inline-block;
+  width: 0.3em;
+  text-align: center;
+  color: var(--mode);
+  transform: translateY(-0.08em);
+  transition: color var(--d-mode) var(--ease-standard);
+}

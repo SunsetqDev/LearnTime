@@ -1,0 +1,69 @@
+.root {
+  display: grid;
+  gap: var(--s-3);
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+.count {
+  font-family: var(--font-num);
+  font-size: var(--fs-13);
+  color: var(--ink);
+}
+.of {
+  color: var(--ink-3);
+}
+.row {
+  display: flex;
+  gap: 3px;
+  padding: 0;
+  list-style: none;
+}
+.seg {
+  flex-basis: 0;
+  min-width: 0;
+  display: grid;
+  gap: 6px;
+}
+.bar {
+  position: relative;
+  display: block;
+  height: 6px;
+  border-radius: 1px;
+  overflow: hidden;
+  --c: var(--c-focus);
+  box-shadow: inset 0 0 0 1px var(--c);
+  transition: box-shadow var(--d-ui) var(--ease-standard);
+}
+.seg[data-mode='short'] .bar {
+  --c: var(--c-short);
+}
+.seg[data-mode='long'] .bar {
+  --c: var(--c-long);
+}
+.done .bar {
+  background: var(--c);
+  opacity: 0.4;
+}
+.next .bar {
+  opacity: 0.55;
+}
+.barFill {
+  position: absolute;
+  inset: 0;
+  background: var(--c);
+  transform-origin: left center;
+}
+.label {
+  font-size: var(--fs-11);
+  color: var(--ink-3);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.now .label {
+  color: var(--ink);
+  font-weight: 500;
+}
