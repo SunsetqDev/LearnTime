@@ -1,0 +1,85 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  min-height: 64px;
+}
+.text {
+  display: grid;
+  gap: 2px;
+}
+.label {
+  font-weight: 500;
+}
+.hint {
+  font-size: var(--fs-13);
+  color: var(--ink-3);
+}
+.control {
+  display: flex;
+  align-items: center;
+  gap: var(--s-1);
+}
+.valueBox {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: var(--tap);
+  overflow: hidden;
+}
+.valueShown {
+  grid-area: 1 / 1;
+  font-family: var(--font-num);
+  font-size: var(--fs-21);
+  font-variant-numeric: tabular-nums;
+  margin-right: 1.4em;
+  pointer-events: none;
+}
+/* Настоящее поле лежит сверху прозрачным: ввод с клавиатуры, анимация — у подписи под ним */
+.input {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  border: 0;
+  background: transparent;
+  color: transparent;
+  caret-color: var(--ink);
+  text-align: center;
+  font-family: var(--font-num);
+  font-size: var(--fs-21);
+  padding-right: 1.4em;
+  appearance: textfield;
+  -moz-appearance: textfield;
+  cursor: text;
+}
+.input:focus {
+  color: var(--ink);
+}
+.input:focus-visible {
+  outline: var(--hair-strong) solid var(--mode-ink);
+  outline-offset: -2px;
+}
+.valueBox:focus-within .valueShown {
+  visibility: hidden;
+}
+.input::-webkit-inner-spin-button,
+.input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.unit {
+  position: absolute;
+  right: var(--s-2);
+  font-size: var(--fs-13);
+  color: var(--ink-3);
+  pointer-events: none;
+}
+@media (max-width: 520px) {
+  .row {
+    flex-wrap: wrap;
+    gap: var(--s-2);
+    padding: var(--s-2) 0;
+  }
+}

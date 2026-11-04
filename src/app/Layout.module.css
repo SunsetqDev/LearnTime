@@ -133,8 +133,11 @@
   background: var(--ink);
 }
 .meta {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: var(--s-3);
   min-width: 64px;
-  text-align: right;
 }
 
 /* ---------- Содержимое ---------- */

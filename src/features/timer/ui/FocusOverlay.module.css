@@ -1,0 +1,59 @@
+.root {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-modal);
+  display: grid;
+  place-items: center;
+  background: var(--paper);
+  outline: none;
+}
+.idle {
+  cursor: none;
+}
+.center {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-4);
+}
+.center :global(.caps) {
+  color: var(--mode-ink);
+}
+.time {
+  border-radius: var(--r-md);
+}
+.track {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--paper-sunken);
+}
+.fill {
+  height: 100%;
+  background: var(--mode);
+  transform-origin: left center;
+}
+.hint {
+  position: absolute;
+  bottom: calc(var(--s-6) + env(safe-area-inset-bottom));
+  display: flex;
+  gap: var(--s-5);
+  font-family: var(--font-num);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--ink-3);
+  transition: opacity var(--d-page) var(--ease-standard);
+}
+.idle .hint {
+  opacity: 0;
+}
+.exit {
+  text-transform: inherit;
+  letter-spacing: inherit;
+  min-height: var(--tap);
+}
+.exit:hover {
+  color: var(--ink);
+}

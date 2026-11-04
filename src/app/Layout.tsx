@@ -1,7 +1,12 @@
 import { AnimatePresence, motion, useReducedMotion } from 'motion/react';
 import { Suspense, useState } from 'react';
 import { NavLink, useLocation, useOutlet } from 'react-router-dom';
+import { AppHotkeys } from '@/app/AppHotkeys';
+import { KeyboardHelp } from '@/app/KeyboardHelp';
 import { NAV } from '@/app/nav';
+import { ui, useUi } from '@/app/uiStore';
+import { FocusOverlay } from '@/features/timer/ui/FocusOverlay';
+import { IconButton } from '@/ui/Button';
 import { Icon } from '@/ui/Icon';
 import { Toasts } from '@/ui/Toasts';
 import s from '@/app/Layout.module.css';
@@ -97,6 +102,10 @@ function TabBar() {
   );
 }
 
+const closeFocus = () => {
+  ui.setFocus(false);
+};
+
 /** Замораживает текущую страницу, чтобы при уходе анимировалась именно она, а не новая. */
 function FrozenOutlet() {
   const outlet = useOutlet();
@@ -132,6 +141,7 @@ function AnimatedOutlet() {
 
 export function Layout() {
   const location = useLocation();
+  const focusMode = useUi((st) => st.focusMode);
   const current = NAV.find((n) =>
     n.to === '/' ? location.pathname === '/' : location.pathname.startsWith(n.to),
   );
@@ -145,6 +155,14 @@ export function Layout() {
         <Wordmark />
         <TopNav />
         <div className={s.meta}>
+          <IconButton
+            icon="keyboard"
+            label="Горячие клавиши (?)"
+            className={s.help}
+            onClick={() => {
+              ui.setHelp(true);
+            }}
+          />
           <span className="caps">
             {current
               ? `${String(index).padStart(2, '0')} / ${String(NAV.length).padStart(2, '0')}`
@@ -164,6 +182,9 @@ export function Layout() {
       </main>
       <TabBar />
       <Toasts />
+      <AppHotkeys />
+      <KeyboardHelp />
+      <FocusOverlay open={focusMode} onClose={closeFocus} />
     </div>
   );
 }

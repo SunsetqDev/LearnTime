@@ -1,0 +1,43 @@
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  min-height: 56px;
+}
+.text {
+  display: grid;
+  gap: 2px;
+  cursor: pointer;
+}
+.label {
+  font-weight: 500;
+}
+.hint {
+  font-size: var(--fs-13);
+  color: var(--ink-3);
+}
+.switch {
+  position: relative;
+  flex: none;
+  width: 42px;
+  height: 24px;
+  padding: 3px;
+  border-radius: var(--r-pill);
+  background: var(--rule-strong);
+  transition: background-color var(--d-ui) var(--ease-standard);
+}
+.on {
+  background: var(--ink);
+}
+.switch:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+.knob {
+  display: block;
+  width: 18px;
+  height: 18px;
+  border-radius: var(--r-pill);
+  background: var(--paper-raised);
+}
