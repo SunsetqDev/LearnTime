@@ -4,6 +4,7 @@ import { NavLink, useLocation, useOutlet } from 'react-router-dom';
 import { AppHotkeys } from '@/app/AppHotkeys';
 import { KeyboardHelp } from '@/app/KeyboardHelp';
 import { NAV } from '@/app/nav';
+import { UpdatePrompt } from '@/app/UpdatePrompt';
 import { ui, useUi } from '@/app/uiStore';
 import { FocusOverlay } from '@/features/timer/ui/FocusOverlay';
 import { IconButton } from '@/ui/Button';
@@ -183,6 +184,7 @@ export function Layout() {
       <TabBar />
       <Toasts />
       <AppHotkeys />
+      <UpdatePrompt />
       <KeyboardHelp />
       <FocusOverlay open={focusMode} onClose={closeFocus} />
     </div>

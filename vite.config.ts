@@ -14,7 +14,7 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'prompt',
-      includeAssets: ['favicon.svg', 'apple-touch-icon.png'],
+      includeAssets: ['favicon.svg', 'icon.svg', 'apple-touch-icon.png'],
       manifest: {
         name: 'Фокус — учебный таймер',
         short_name: 'Фокус',
@@ -35,6 +35,8 @@ export default defineConfig({
       workbox: {
         globPatterns: ['**/*.{js,css,html,svg,png,woff2}'],
         navigateFallback: 'index.html',
+        // Шрифты лежат в сборке (@fontsource), поэтому офлайн всё выглядит так же, как онлайн.
+        cleanupOutdatedCaches: true,
       },
     }),
   ],

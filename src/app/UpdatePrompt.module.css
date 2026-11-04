@@ -1,0 +1,21 @@
+.bar {
+  position: fixed;
+  top: var(--s-3);
+  left: 50%;
+  z-index: var(--z-toast);
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-2) var(--s-2) var(--s-2) var(--s-4);
+  border: var(--hair) solid var(--rule-strong);
+  border-radius: var(--r-md);
+  background: var(--paper-raised);
+  translate: -50% 0;
+  font-size: var(--fs-13);
+  font-weight: 500;
+  white-space: nowrap;
+}
+.actions {
+  display: flex;
+  gap: var(--s-1);
+}
