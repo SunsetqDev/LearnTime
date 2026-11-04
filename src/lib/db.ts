@@ -1,6 +1,6 @@
 import Dexie, { type EntityTable } from 'dexie';
 import type { Mode, SessionStatus } from '@/features/timer/model/types';
-import type { SubjectColor } from '@/features/subjects/palette';
+import { isSubjectColor, LEGACY_COLORS, type SubjectColor } from '@/features/subjects/palette';
 
 export interface SessionRecord {
   readonly id: string;
@@ -41,7 +41,7 @@ export type FocusDB = Dexie & {
 };
 
 export const DB_NAME = 'focus';
-export const DB_VERSION = 2;
+export const DB_VERSION = 3;
 
 /**
  * Схема базы с историей версий. Старые версии не удаляются: Dexie по цепочке
@@ -65,6 +65,18 @@ export function defineSchema(db: Dexie): void {
         .toCollection()
         .modify((s) => {
           s.hour ??= new Date(s.startedAt).getHours();
+        });
+    });
+
+  // v3: палитра предметов сокращена до 8 проверенных цветов — переносим старые ключи.
+  db.version(3)
+    .stores({})
+    .upgrade(async (tx) => {
+      await tx
+        .table<{ color: string }>('subjects')
+        .toCollection()
+        .modify((s) => {
+          if (!isSubjectColor(s.color)) s.color = LEGACY_COLORS[s.color] ?? 'cobalt';
         });
     });
 }

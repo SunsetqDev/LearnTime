@@ -1,0 +1,111 @@
+.frame {
+  display: grid;
+  gap: var(--s-4);
+  align-content: start;
+  min-width: 0;
+  padding-top: var(--s-4);
+  border-top: var(--hair) solid var(--ink);
+}
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--s-3);
+}
+.titles {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+.index {
+  font-family: var(--font-num);
+  font-size: var(--fs-11);
+  color: var(--ink-3);
+}
+.title {
+  font-size: var(--fs-17);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+.view {
+  min-height: 34px;
+  padding: 0 var(--s-2);
+  font-family: var(--font-num);
+  font-size: var(--fs-11);
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--ink-3);
+  border-bottom: var(--hair) solid transparent;
+  transition:
+    color var(--d-micro) var(--ease-standard),
+    border-color var(--d-micro) var(--ease-standard);
+}
+.view:hover,
+.view[aria-pressed='true'] {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.note {
+  margin-top: calc(-1 * var(--s-2));
+  font-size: var(--fs-13);
+  color: var(--ink-2);
+}
+.body {
+  position: relative;
+  min-width: 0;
+}
+.tableWrap {
+  max-height: 360px;
+  overflow: auto;
+}
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--fs-13);
+}
+.table th,
+.table td {
+  padding: var(--s-2) var(--s-2) var(--s-2) 0;
+  border-bottom: var(--hair) solid var(--rule);
+  text-align: left;
+}
+.table th {
+  position: sticky;
+  top: 0;
+  background: var(--paper);
+  font-family: var(--font-num);
+  font-size: var(--fs-11);
+  font-weight: 400;
+  letter-spacing: var(--tracking-caps);
+  text-transform: uppercase;
+  color: var(--ink-3);
+}
+.table td:last-child,
+.table th:last-child {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-2) var(--s-4);
+}
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--fs-13);
+  color: var(--ink-2);
+}
+.legendSwatch {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--r-xs);
+}

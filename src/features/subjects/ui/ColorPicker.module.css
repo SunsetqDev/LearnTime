@@ -7,7 +7,7 @@
 }
 .grid {
   display: grid;
-  grid-template-columns: repeat(5, 44px);
+  grid-template-columns: repeat(4, 44px);
   gap: var(--s-2);
 }
 .swatch {

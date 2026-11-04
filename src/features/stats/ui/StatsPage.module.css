@@ -1,0 +1,27 @@
+.page {
+  display: grid;
+  gap: var(--s-7);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--s-7) var(--s-6);
+}
+.wide {
+  grid-column: span 7;
+  min-width: 0;
+}
+.narrow {
+  grid-column: span 5;
+  min-width: 0;
+}
+.full {
+  grid-column: 1 / -1;
+  min-width: 0;
+}
+@media (max-width: 960px) {
+  .wide,
+  .narrow {
+    grid-column: 1 / -1;
+  }
+}

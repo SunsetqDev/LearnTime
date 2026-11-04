@@ -116,17 +116,15 @@
   --warn: #8a5a12;
   --danger: #a3311c;
 
-  /* Палитра предметов */
-  --sub-vermilion: #c8432a;
-  --sub-ochre: #b07a1e;
-  --sub-mustard: #8f8424;
-  --sub-olive: #627036;
-  --sub-pine: #2f6b4f;
-  --sub-teal: #23727a;
-  --sub-petrol: #2f5b78;
-  --sub-slate: #4f5a86;
-  --sub-plum: #7d4a6e;
-  --sub-terracotta: #9c5a3c;
+  /* проверено валидатором: CVD ΔE ≥ 8 у соседних пар, яркость и насыщенность в норме */
+  --sub-cobalt: #2f73c4;
+  --sub-vermilion: #e0622f;
+  --sub-jade: #17a077;
+  --sub-ochre: #dd9a0c;
+  --sub-rose: #dc739c;
+  --sub-moss: #2f8a2a;
+  --sub-iris: #6553cf;
+  --sub-brick: #cf4140;
 
   --heat-0: var(--paper-sunken);
 }
@@ -160,16 +158,14 @@
   --warn: #e0b267;
   --danger: #ff8a73;
 
-  --sub-vermilion: #ee7a5e;
-  --sub-ochre: #dba453;
-  --sub-mustard: #c9bc5a;
-  --sub-olive: #a3b26e;
-  --sub-pine: #6fb38f;
-  --sub-teal: #62b4bb;
-  --sub-petrol: #78a6c6;
-  --sub-slate: #9aa3d6;
-  --sub-plum: #c48db4;
-  --sub-terracotta: #d4936f;
+  --sub-cobalt: #4a8fe0;
+  --sub-vermilion: #e06a38;
+  --sub-jade: #22a87c;
+  --sub-ochre: #c08510;
+  --sub-rose: #c95f87;
+  --sub-moss: #3f9b35;
+  --sub-iris: #8273dc;
+  --sub-brick: #d65a59;
 
   --heat-0: #1e1d1a;
 }
@@ -203,16 +199,14 @@
     --warn: #e0b267;
     --danger: #ff8a73;
 
-    --sub-vermilion: #ee7a5e;
-    --sub-ochre: #dba453;
-    --sub-mustard: #c9bc5a;
-    --sub-olive: #a3b26e;
-    --sub-pine: #6fb38f;
-    --sub-teal: #62b4bb;
-    --sub-petrol: #78a6c6;
-    --sub-slate: #9aa3d6;
-    --sub-plum: #c48db4;
-    --sub-terracotta: #d4936f;
+    --sub-cobalt: #4a8fe0;
+    --sub-vermilion: #e06a38;
+    --sub-jade: #22a87c;
+    --sub-ochre: #c08510;
+    --sub-rose: #c95f87;
+    --sub-moss: #3f9b35;
+    --sub-iris: #8273dc;
+    --sub-brick: #d65a59;
 
     --heat-0: #1e1d1a;
   }

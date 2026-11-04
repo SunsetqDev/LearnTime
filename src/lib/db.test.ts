@@ -58,3 +58,20 @@ describe('база данных', () => {
     expect(toRecord(draft(late)).dayKey).toBe('2026-11-03');
   });
 });
+
+describe('миграция палитры', () => {
+  it('v3 переносит старые цвета предметов на новую палитру', async () => {
+    const name = `palette-${Math.random()}`;
+    const v2 = new Dexie(name);
+    v2.version(1).stores({ sessions: 'id', subjects: 'id, order, archived', achievements: 'id' });
+    await v2.table('subjects').bulkAdd([
+      { id: 'a', name: 'Физика', color: 'petrol', archived: 0, order: 0, createdAt: 0 },
+      { id: 'b', name: 'Химия', color: 'jade', archived: 0, order: 1, createdAt: 0 },
+    ]);
+    v2.close();
+    const db = openDatabase(name);
+    const rows = await db.subjects.orderBy('order').toArray();
+    expect(rows.map((r) => r.color)).toEqual(['cobalt', 'jade']);
+    db.close();
+  });
+});

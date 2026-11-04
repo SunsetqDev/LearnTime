@@ -1,0 +1,114 @@
+.root {
+  display: grid;
+  gap: var(--s-5);
+  padding-top: var(--s-4);
+  border-top: var(--hair) solid var(--ink);
+}
+.head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+.titles {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+.index {
+  font-family: var(--font-num);
+  font-size: var(--fs-11);
+  color: var(--ink-3);
+}
+.title {
+  font-size: var(--fs-17);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.found {
+  font-family: var(--font-num);
+  font-size: var(--fs-13);
+  color: var(--ink-3);
+}
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: var(--s-3) var(--s-4);
+}
+.filter {
+  display: grid;
+  gap: var(--s-1);
+}
+.filter select,
+.filter input {
+  min-height: 38px;
+  padding: 0 var(--s-2);
+  border: var(--hair) solid var(--rule-strong);
+  border-radius: var(--r-sm);
+  background: var(--paper);
+  font-size: var(--fs-13);
+  color-scheme: inherit;
+}
+.filter select {
+  min-width: 180px;
+}
+.reset {
+  min-height: 38px;
+  font-size: var(--fs-13);
+  color: var(--ink-2);
+  border-bottom: var(--hair) solid var(--ink-3);
+}
+.groups {
+  display: grid;
+  gap: var(--s-5);
+}
+.group {
+  display: grid;
+}
+.dayHead {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-bottom: var(--s-2);
+  border-bottom: var(--hair) solid var(--rule-strong);
+}
+.day {
+  font-weight: 600;
+}
+.dayTotal {
+  font-family: var(--font-num);
+  font-size: var(--fs-13);
+  color: var(--ink-2);
+}
+.items {
+  padding: 0;
+  list-style: none;
+}
+.item {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-2);
+  overflow: hidden;
+}
+.del {
+  opacity: 0;
+  transition: opacity var(--d-micro) var(--ease-standard);
+}
+.item:hover .del,
+.del:focus-visible {
+  opacity: 1;
+}
+@media (hover: none) {
+  .del {
+    opacity: 0.6;
+  }
+}
+.more {
+  justify-self: start;
+  min-height: var(--tap);
+  font-weight: 500;
+  border-bottom: var(--hair-strong) solid var(--ink);
+}

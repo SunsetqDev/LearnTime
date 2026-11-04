@@ -1,0 +1,176 @@
+.wrap {
+  position: relative;
+  width: 100%;
+  min-width: 0;
+  touch-action: pan-y;
+}
+.wrap svg {
+  overflow: visible;
+}
+.grid {
+  stroke: var(--rule);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+.baseline {
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+.axis {
+  font-family: var(--font-num);
+  font-size: 11px;
+  fill: var(--ink-3);
+}
+.axisStrong {
+  font-family: var(--font-num);
+  font-size: 11px;
+  fill: var(--ink);
+}
+.todayDot {
+  fill: var(--c-focus);
+}
+.barGroup {
+  transition: opacity var(--d-micro) var(--ease-standard);
+}
+.goal line {
+  stroke: var(--ink);
+  stroke-width: 1;
+  stroke-dasharray: 3 4;
+}
+.goal text {
+  font-family: var(--font-num);
+  font-size: 11px;
+  fill: var(--ink-2);
+}
+
+/* ---------- Тепловая карта ---------- */
+.heatScroll {
+  overflow-x: auto;
+  scrollbar-width: thin;
+  padding-bottom: var(--s-2);
+}
+.cell {
+  shape-rendering: geometricPrecision;
+  animation: cell-in 500ms var(--ease-out-expo) both;
+  animation-delay: calc(var(--col, 0) * 12ms);
+}
+.cell[data-level='0'] {
+  fill: var(--heat-0);
+}
+.cell[data-level='1'] {
+  fill: color-mix(in oklab, var(--c-focus) 28%, var(--heat-0));
+}
+.cell[data-level='2'] {
+  fill: color-mix(in oklab, var(--c-focus) 52%, var(--heat-0));
+}
+.cell[data-level='3'] {
+  fill: color-mix(in oklab, var(--c-focus) 76%, var(--heat-0));
+}
+.cell[data-level='4'] {
+  fill: var(--c-focus);
+}
+.cell[data-future='true'] {
+  fill: transparent;
+  stroke: var(--rule);
+  stroke-width: 1;
+}
+.cellActive {
+  stroke: var(--ink);
+  stroke-width: 1.5;
+}
+.heatLegend {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  font-size: var(--fs-11);
+  color: var(--ink-3);
+}
+.heatLegend i {
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+}
+.heatLegend span {
+  margin: 0 var(--s-1);
+}
+
+/* ---------- Предметы ---------- */
+.subjects {
+  display: grid;
+  gap: var(--s-4);
+  padding: 0;
+  list-style: none;
+}
+.subjectRow {
+  display: grid;
+  gap: var(--s-2);
+}
+.subjectTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+.subjectName {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  min-width: 0;
+  font-weight: 500;
+}
+.subjectName span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.subjectSwatch {
+  flex: none;
+  width: 10px;
+  height: 10px;
+  border-radius: var(--r-xs);
+}
+.subjectValue {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.subjectShare {
+  margin-left: var(--s-2);
+  font-family: var(--font-num);
+  font-size: var(--fs-11);
+  color: var(--ink-3);
+}
+.track {
+  height: 8px;
+  border-radius: 0 4px 4px 0;
+  background: var(--paper-sunken);
+  overflow: hidden;
+}
+.trackFill {
+  height: 100%;
+  border-radius: 0 4px 4px 0;
+  transform-origin: left center;
+}
+
+/* ---------- Часы ---------- */
+.bestBand {
+  fill: var(--c-focus-wash);
+}
+.bestLabel {
+  font-family: var(--font-num);
+  font-size: 11px;
+  fill: var(--c-focus-ink);
+}
+
+@keyframes cell-in {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cell {
+    animation: none;
+  }
+}

@@ -1,0 +1,48 @@
+.tip {
+  position: absolute;
+  z-index: var(--z-overlay);
+  min-width: 140px;
+  max-width: 240px;
+  padding: var(--s-2) var(--s-3);
+  border: var(--hair) solid var(--rule-strong);
+  border-radius: var(--r-sm);
+  background: var(--paper-raised);
+  pointer-events: none;
+  font-size: var(--fs-13);
+  translate: -50% calc(-100% - 10px);
+}
+.left {
+  translate: -8px calc(-100% - 10px);
+}
+.right {
+  translate: calc(-100% + 8px) calc(-100% - 10px);
+}
+.title {
+  margin-bottom: var(--s-1);
+  font-family: var(--font-num);
+  font-size: var(--fs-11);
+  letter-spacing: 0.04em;
+  color: var(--ink-3);
+}
+.row {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-2);
+  line-height: 1.6;
+}
+.swatch {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--r-xs);
+}
+.label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--ink-2);
+}
+.value {
+  font-variant-numeric: tabular-nums;
+  color: var(--ink);
+}

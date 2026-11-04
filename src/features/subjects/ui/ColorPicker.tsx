@@ -18,7 +18,7 @@ interface ColorPickerProps {
 export function ColorPicker({ value, onChange, taken = [] }: ColorPickerProps) {
   const refs = useRef<(HTMLButtonElement | null)[]>([]);
   const onKey = (e: KeyboardEvent, i: number) => {
-    const delta = { ArrowRight: 1, ArrowDown: 5, ArrowLeft: -1, ArrowUp: -5 }[e.key];
+    const delta = { ArrowRight: 1, ArrowDown: 4, ArrowLeft: -1, ArrowUp: -4 }[e.key];
     if (delta === undefined) return;
     e.preventDefault();
     const next = (i + delta + COLOR_KEYS.length) % COLOR_KEYS.length;
