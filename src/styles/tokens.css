@@ -1,0 +1,247 @@
+/*
+ * Дизайн-токены «Фокус». Компоненты используют только эти переменные.
+ * Цвета режимов анимируются через @property — смена режима плавно перекрашивает весь интерфейс.
+ */
+@property --mode {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #e3431b;
+}
+@property --mode-ink {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #b5320f;
+}
+@property --mode-wash {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #f6e3da;
+}
+
+:root {
+  /* Типографика */
+  --font-text: 'Onest', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-num: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  --fs-11: 0.6875rem;
+  --fs-13: 0.8125rem;
+  --fs-15: 0.9375rem;
+  --fs-17: 1.0625rem;
+  --fs-21: 1.3125rem;
+  --fs-27: 1.6875rem;
+  --fs-36: 2.25rem;
+  --fs-52: 3.25rem;
+  --fs-timer: clamp(4rem, 15vw, 7.5rem);
+  --fs-display: clamp(2rem, 5vw, 3.25rem);
+
+  --lh-tight: 1;
+  --lh-head: 1.2;
+  --lh-text: 1.5;
+  --tracking-caps: 0.12em;
+  --tracking-display: -0.025em;
+
+  /* Отступы — сетка 4px */
+  --s-1: 4px;
+  --s-2: 8px;
+  --s-3: 12px;
+  --s-4: 16px;
+  --s-5: 24px;
+  --s-6: 32px;
+  --s-7: 48px;
+  --s-8: 64px;
+  --s-9: 96px;
+
+  /* Радиусы */
+  --r-xs: 2px;
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-pill: 999px;
+
+  /* Линии */
+  --hair: 1px;
+  --hair-strong: 1.5px;
+
+  /* Движение */
+  --d-press: 80ms;
+  --d-micro: 160ms;
+  --d-ui: 240ms;
+  --d-page: 400ms;
+  --d-mode: 800ms;
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emph: cubic-bezier(0.3, 0, 0, 1);
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Размеры раскладки */
+  --rail-w: 88px;
+  --tabbar-h: 64px;
+  --content-max: 1240px;
+  --tap: 44px;
+
+  /* Слои */
+  --z-sticky: 10;
+  --z-overlay: 40;
+  --z-modal: 50;
+  --z-toast: 60;
+}
+
+/* ---------- Светлая тема: «бумага» ---------- */
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+  --paper: #f2eee6;
+  --paper-raised: #faf8f3;
+  --paper-sunken: #e9e4d9;
+  --ink: #17150f;
+  --ink-2: #45413a;
+  --ink-3: #686256;
+  --ink-4: #a39c8e;
+  --rule: #dcd6ca;
+  --rule-strong: #c2bbad;
+  --scrim: rgb(23 21 15 / 0.32);
+  --on-solid: #faf8f3;
+
+  --c-focus: #e3431b;
+  --c-focus-ink: #b5320f;
+  --c-focus-wash: #f6e1d6;
+  --c-short: #3d6878;
+  --c-short-ink: #335a69;
+  --c-short-wash: #dde6e6;
+  --c-long: #4e6a5c;
+  --c-long-ink: #425b4e;
+  --c-long-wash: #e0e6de;
+
+  --ok: #3f6b45;
+  --warn: #8a5a12;
+  --danger: #a3311c;
+
+  /* Палитра предметов */
+  --sub-vermilion: #c8432a;
+  --sub-ochre: #b07a1e;
+  --sub-mustard: #8f8424;
+  --sub-olive: #627036;
+  --sub-pine: #2f6b4f;
+  --sub-teal: #23727a;
+  --sub-petrol: #2f5b78;
+  --sub-slate: #4f5a86;
+  --sub-plum: #7d4a6e;
+  --sub-terracotta: #9c5a3c;
+
+  --heat-0: var(--paper-sunken);
+}
+
+/* ---------- Тёмная тема: «ночной щиток» ---------- */
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --paper: #131210;
+  --paper-raised: #1b1a17;
+  --paper-sunken: #0e0d0b;
+  --ink: #ece5d8;
+  --ink-2: #bdb5a8;
+  --ink-3: #948c7f;
+  --ink-4: #5f594f;
+  --rule: #2b2925;
+  --rule-strong: #3a3732;
+  --scrim: rgb(0 0 0 / 0.55);
+  --on-solid: #131210;
+
+  --c-focus: #ff6a3d;
+  --c-focus-ink: #ff8a63;
+  --c-focus-wash: #2c1a13;
+  --c-short: #86aebd;
+  --c-short-ink: #9cc0cd;
+  --c-short-wash: #16211f;
+  --c-long: #8fae9c;
+  --c-long-ink: #a6c2b1;
+  --c-long-wash: #18201b;
+
+  --ok: #8fbf8f;
+  --warn: #e0b267;
+  --danger: #ff8a73;
+
+  --sub-vermilion: #ee7a5e;
+  --sub-ochre: #dba453;
+  --sub-mustard: #c9bc5a;
+  --sub-olive: #a3b26e;
+  --sub-pine: #6fb38f;
+  --sub-teal: #62b4bb;
+  --sub-petrol: #78a6c6;
+  --sub-slate: #9aa3d6;
+  --sub-plum: #c48db4;
+  --sub-terracotta: #d4936f;
+
+  --heat-0: #1e1d1a;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    color-scheme: dark;
+    --paper: #131210;
+    --paper-raised: #1b1a17;
+    --paper-sunken: #0e0d0b;
+    --ink: #ece5d8;
+    --ink-2: #bdb5a8;
+    --ink-3: #948c7f;
+    --ink-4: #5f594f;
+    --rule: #2b2925;
+    --rule-strong: #3a3732;
+    --scrim: rgb(0 0 0 / 0.55);
+    --on-solid: #131210;
+
+    --c-focus: #ff6a3d;
+    --c-focus-ink: #ff8a63;
+    --c-focus-wash: #2c1a13;
+    --c-short: #86aebd;
+    --c-short-ink: #9cc0cd;
+    --c-short-wash: #16211f;
+    --c-long: #8fae9c;
+    --c-long-ink: #a6c2b1;
+    --c-long-wash: #18201b;
+
+    --ok: #8fbf8f;
+    --warn: #e0b267;
+    --danger: #ff8a73;
+
+    --sub-vermilion: #ee7a5e;
+    --sub-ochre: #dba453;
+    --sub-mustard: #c9bc5a;
+    --sub-olive: #a3b26e;
+    --sub-pine: #6fb38f;
+    --sub-teal: #62b4bb;
+    --sub-petrol: #78a6c6;
+    --sub-slate: #9aa3d6;
+    --sub-plum: #c48db4;
+    --sub-terracotta: #d4936f;
+
+    --heat-0: #1e1d1a;
+  }
+}
+
+/* ---------- Режим определяет акцент всего интерфейса ---------- */
+:root {
+  --mode: var(--c-focus);
+  --mode-ink: var(--c-focus-ink);
+  --mode-wash: var(--c-focus-wash);
+  transition:
+    --mode var(--d-mode) var(--ease-standard),
+    --mode-ink var(--d-mode) var(--ease-standard),
+    --mode-wash var(--d-mode) var(--ease-standard);
+}
+:root[data-mode='short'] {
+  --mode: var(--c-short);
+  --mode-ink: var(--c-short-ink);
+  --mode-wash: var(--c-short-wash);
+}
+:root[data-mode='long'] {
+  --mode: var(--c-long);
+  --mode-ink: var(--c-long-ink);
+  --mode-wash: var(--c-long-wash);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --d-press: 0ms;
+    --d-micro: 0ms;
+    --d-ui: 0ms;
+    --d-page: 0ms;
+  }
+}
