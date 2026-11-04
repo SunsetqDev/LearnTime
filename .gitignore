@@ -1,10 +1,10 @@
-node_modules
-dist
-dev-dist
-coverage
-playwright-report
-test-results
+!.vscode/extensions.json
 *.local
 .DS_Store
 .vscode/*
-!.vscode/extensions.json
+coverage
+dev-dist
+dist
+node_modules
+playwright-report
+test-results
