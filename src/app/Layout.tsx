@@ -3,6 +3,7 @@ import { Suspense, useState } from 'react';
 import { NavLink, useLocation, useOutlet } from 'react-router-dom';
 import { NAV } from '@/app/nav';
 import { Icon } from '@/ui/Icon';
+import { Toasts } from '@/ui/Toasts';
 import s from '@/app/Layout.module.css';
 
 const EASE = [0.16, 1, 0.3, 1] as const;
@@ -162,6 +163,7 @@ export function Layout() {
         <AnimatedOutlet />
       </main>
       <TabBar />
+      <Toasts />
     </div>
   );
 }

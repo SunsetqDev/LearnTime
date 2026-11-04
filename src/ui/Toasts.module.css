@@ -1,0 +1,75 @@
+.viewport {
+  position: fixed;
+  right: var(--s-5);
+  bottom: var(--s-5);
+  z-index: var(--z-toast);
+  display: grid;
+  gap: var(--s-2);
+  width: min(360px, calc(100vw - 2 * var(--s-4)));
+  pointer-events: none;
+}
+.toast {
+  position: relative;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: var(--s-3);
+  padding: var(--s-3) var(--s-2) var(--s-3) var(--s-3);
+  border-radius: var(--r-md);
+  background: var(--ink);
+  color: var(--paper);
+  overflow: hidden;
+  pointer-events: auto;
+}
+.mark {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--r-sm);
+  background: color-mix(in srgb, var(--paper) 12%, transparent);
+  color: var(--paper);
+}
+.achievement .mark,
+.goal .mark {
+  background: var(--c-focus);
+  color: #fff;
+}
+.copy {
+  display: grid;
+  min-width: 0;
+}
+.title {
+  font-weight: 600;
+}
+.text {
+  font-size: var(--fs-13);
+  color: color-mix(in srgb, var(--paper) 72%, transparent);
+}
+.close {
+  display: grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  color: color-mix(in srgb, var(--paper) 70%, transparent);
+}
+.close:hover {
+  color: var(--paper);
+}
+.timer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  background: var(--c-focus);
+  transform-origin: left center;
+}
+@media (max-width: 960px) {
+  .viewport {
+    left: var(--s-4);
+    right: var(--s-4);
+    width: auto;
+    bottom: calc(var(--tabbar-h) + var(--s-3) + env(safe-area-inset-bottom));
+  }
+}

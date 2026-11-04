@@ -1,0 +1,66 @@
+.root {
+  display: grid;
+  gap: var(--s-2);
+}
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--s-3);
+}
+.edit {
+  font-family: var(--font-num);
+  font-size: var(--fs-13);
+  color: var(--ink-2);
+  text-decoration: none;
+  border-bottom: var(--hair) dashed var(--rule-strong);
+}
+.edit:hover {
+  color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+.track {
+  position: relative;
+  height: 6px;
+  background: var(--paper-sunken);
+  border-radius: 1px;
+  overflow: hidden;
+}
+.fill {
+  position: absolute;
+  inset: 0;
+  background: var(--c-focus);
+  transform-origin: left center;
+}
+.done {
+  background: var(--ink);
+}
+.notch {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--paper);
+}
+.value {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  font-size: var(--fs-13);
+  font-weight: 500;
+}
+.over {
+  color: var(--ink-3);
+  font-weight: 400;
+}
+.streak {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-1);
+  font-size: var(--fs-13);
+  color: var(--ink-2);
+}
+.risk {
+  color: var(--warn);
+}

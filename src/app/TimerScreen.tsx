@@ -1,3 +1,4 @@
+import { GoalBlock } from '@/features/habits/ui/GoalBlock';
 import { TodayPanel } from '@/features/sessions/ui/TodayPanel';
 import { SubjectPicker } from '@/features/subjects/ui/SubjectPicker';
 import { useTimer } from '@/features/timer/store';
@@ -20,7 +21,7 @@ export function TimerScreen() {
         />
       }
       aside={
-        <TodayPanel>
+        <TodayPanel goal={<GoalBlock />}>
           <Field
             label="Задача на сессию"
             placeholder="Решить вариант ЕНТ по математике"

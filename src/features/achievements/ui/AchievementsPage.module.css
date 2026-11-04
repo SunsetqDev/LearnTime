@@ -1,0 +1,118 @@
+.page {
+  display: grid;
+  gap: var(--s-7);
+}
+.habit {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  border-top: var(--hair) solid var(--ink);
+}
+.big {
+  display: grid;
+  align-content: start;
+  gap: var(--s-2);
+  padding: var(--s-4) var(--s-4) 0 0;
+}
+.big + .big {
+  padding-left: var(--s-4);
+  border-left: var(--hair) solid var(--rule);
+}
+.bigValue {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  font-size: var(--fs-52);
+  font-weight: 300;
+  letter-spacing: -0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.bigUnit {
+  font-size: var(--fs-15);
+  font-weight: 400;
+  letter-spacing: 0;
+  color: var(--ink-3);
+}
+.bigNote {
+  font-size: var(--fs-13);
+  color: var(--ink-2);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 0 var(--s-6);
+  padding: 0;
+  list-style: none;
+  border-top: var(--hair) solid var(--rule);
+}
+.item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: center;
+  gap: var(--s-4);
+  padding: var(--s-4) 0;
+  border-bottom: var(--hair) solid var(--rule);
+}
+.copy {
+  display: grid;
+  gap: 2px;
+  min-width: 0;
+}
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--s-2);
+  font-size: var(--fs-15);
+  font-weight: 600;
+}
+.lock {
+  color: var(--ink-4);
+}
+.item:not(.open) .title {
+  color: var(--ink-2);
+}
+.condition {
+  font-size: var(--fs-13);
+  color: var(--ink-2);
+}
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--s-3);
+  margin-top: var(--s-1);
+  font-size: var(--fs-11);
+  color: var(--ink-3);
+  font-family: var(--font-num);
+}
+.bar {
+  flex: 1;
+  max-width: 120px;
+  height: 2px;
+  background: var(--paper-sunken);
+  overflow: hidden;
+}
+.barFill {
+  display: block;
+  height: 100%;
+  background: var(--c-focus);
+  transform-origin: left center;
+}
+
+@media (max-width: 720px) {
+  .habit {
+    grid-template-columns: 1fr 1fr;
+  }
+  .big:first-child {
+    grid-column: 1 / -1;
+    padding-bottom: var(--s-4);
+    border-bottom: var(--hair) solid var(--rule);
+  }
+  .big:nth-child(2) {
+    padding-left: 0;
+    border-left: 0;
+  }
+  .bigValue {
+    font-size: var(--fs-36);
+  }
+}

@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { startAchievementsSync } from '@/features/achievements/store';
 import { sessionsRepo, startSessionsSync } from '@/features/sessions/store';
 import { startSubjectsSync } from '@/features/subjects/store';
 import { onTimerEffect } from '@/features/timer/store';
@@ -8,6 +9,7 @@ export function useDataRuntime(): void {
   useEffect(() => {
     const offSubjects = startSubjectsSync();
     const offSessions = startSessionsSync();
+    const offAchievements = startAchievementsSync();
     const offRecord = onTimerEffect((effect) => {
       if (effect.type !== 'record') return;
       void sessionsRepo.add(effect.session).catch((e: unknown) => {
@@ -17,6 +19,7 @@ export function useDataRuntime(): void {
     return () => {
       offSubjects();
       offSessions();
+      offAchievements();
       offRecord();
     };
   }, []);

@@ -1,0 +1,41 @@
+.medal {
+  flex: none;
+  overflow: visible;
+}
+.tick {
+  stroke: var(--rule-strong);
+}
+.tickOn {
+  stroke: var(--c-focus);
+}
+.unlocked .tickOn {
+  stroke: var(--ink);
+}
+.disc {
+  fill: none;
+  stroke: var(--rule-strong);
+  stroke-width: 1;
+}
+.unlocked .disc {
+  fill: var(--ink);
+  stroke: var(--ink);
+}
+.glyph {
+  fill: none;
+  stroke: var(--ink-3);
+  stroke-width: 1.5;
+  stroke-linecap: square;
+  stroke-linejoin: miter;
+}
+.unlocked .glyph {
+  stroke: var(--paper);
+}
+.label {
+  font-family: var(--font-num);
+  font-size: 10px;
+  font-weight: 500;
+  fill: var(--ink-3);
+}
+.unlocked .label {
+  fill: var(--paper);
+}
